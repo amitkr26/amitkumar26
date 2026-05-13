@@ -28,16 +28,16 @@ export default function ProjectsPage() {
         </div>
 
         {/* Stats bar */}
-        <div className="flex gap-6 mb-12 text-xs">
-          <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-4 py-2">
+        <div className="flex flex-wrap gap-3 sm:gap-6 mb-12 text-xs">
+          <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-3 sm:px-4 py-2">
             <span className="text-slate-500">Total</span>
             <span className="text-accent font-mono">{projectCount}</span>
           </div>
-          <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-4 py-2">
+          <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-3 sm:px-4 py-2">
             <span className="text-slate-500">Domains</span>
             <span className="text-accent font-mono">{categoryCount}</span>
           </div>
-          <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-4 py-2">
+          <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800 px-3 sm:px-4 py-2">
             <span className="text-slate-500">Updated</span>
             <span className="text-accent font-mono">{projectsData[0]?.date?.split("-")[0]}</span>
           </div>

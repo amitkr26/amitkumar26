@@ -9,18 +9,18 @@ const categoryRoutes = {
 
 const CaseStudies = () => {
   return (
-    <section className="py-24 px-6 bg-slate-950/50">
+    <section className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-950/50">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-12 border-b border-slate-800 pb-6">
-          <h2 className="text-2xl font-bold uppercase tracking-widest text-slate-200">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8 sm:mb-12 border-b border-slate-800 pb-4 sm:pb-6">
+          <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-widest text-slate-200">
             Engineering Case Studies
           </h2>
-          <div className="text-[10px] text-slate-500 font-mono">
+          <div className="text-[9px] sm:text-[10px] text-slate-500 font-mono">
             TOTAL_ENTRIES: {engineeringCaseStudies.length}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {engineeringCaseStudies.map((project) => (
             <div key={project.id} className="bg-slate-900/40 border border-slate-800 flex flex-col">
               {/* Header */}

@@ -32,6 +32,9 @@ export const metadata = {
   authors: [{ name: "Amit Kumar" }],
   creator: "Amit Kumar",
   publisher: "Amit Kumar",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
