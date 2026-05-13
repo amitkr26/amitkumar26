@@ -25,8 +25,8 @@ export default function Contact() {
               <div className="space-y-4">
                 <div className="group">
                   <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Email</div>
-                  <a href="mailto:amitkr26@example.com" className="text-sm text-slate-200 font-mono hover:text-accent transition-colors">
-                    amitkr26@example.com
+                  <a href="mailto:amitkrbsc26@gmail.com" className="text-sm text-slate-200 font-mono hover:text-accent transition-colors">
+                    amitkrbsc26@gmail.com
                   </a>
                 </div>
                 <div className="border-t border-slate-800 pt-4">
