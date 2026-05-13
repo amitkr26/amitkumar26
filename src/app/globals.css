@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --background: 27 27 27;
-    --foreground: 225 225 225;
-    --muted: 115 115 115;
-    --accent: 254 254 91;
-    /* hex value of rgb(254,254,91) color is  #FEFE5B  */
+    --background: 15 23 42;
+    --foreground: 241 245 249;
+    --muted: 148 163 184;
+    --accent: 56 189 248;
+    /* hex value of rgb(56,189,248) color is #38BDF8 - technical blue */
   }
 }
 

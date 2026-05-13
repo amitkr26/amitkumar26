@@ -1,8 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
-import FireFliesBackground from "@/components/FireFliesBackground";
-import Sound from "@/components/Sound";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,13 +9,21 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    template:
-      "Next.js Portfolio Created with Three.js and Tailwind CSS | %s | CodeBucks",
-    default:
-      "Next.js Portfolio Created with Three.js and Tailwind CSS by CodeBucks",
+    template: "Amit Kumar | Semiconductor & Electronics Engineer | %s",
+    default: "Amit Kumar | Semiconductor & Electronics Engineer",
   },
   description:
-    "A unique creative portfolio designed by CodeBucks with cutting-edge technologies like Next.js, Tailwind CSS, Three.js, and Framer Motion. Experience the art of modern web development firsthand. Checkout CodeBucks on youtube.",
+    "M.Sc. Electronics graduate specializing in semiconductor devices, thin film technology, spintronics, VLSI, and embedded systems. Research focus on FeCo/CoFe thin films fabrication and characterization.",
+  keywords: ["semiconductor", "electronics", "VLSI", "embedded systems", "thin film", "spintronics", "electronics engineer"],
+  authors: [{ name: "Amit Kumar" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://amitkr26.blogspot.com",
+    siteName: "Amit Kumar - Semiconductor Engineer",
+    title: "Amit Kumar | Semiconductor & Electronics Engineer",
+    description: "M.Sc. Electronics graduate specializing in semiconductor devices, thin film technology, spintronics, VLSI, and embedded systems.",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -30,8 +36,6 @@ export default function RootLayout({ children }) {
         )}
       >
         {children}
-        <FireFliesBackground />
-        <Sound />
         <div id="my-modal" />
       </body>
     </html>

@@ -12,18 +12,10 @@ const AboutDetails = () => {
           }
         >
           <h2 className="  text-xl md:text-2xl text-left w-full capitalize">
-            Architect of Enchantment
+            Semiconductor Research & Electronics Engineering
           </h2>
           <p className="font-light  text-xs sm:text-sm md:text-base   ">
-            My journey in web development is powered by an array of mystical
-            tools and languages, with JavaScript casting the core of my
-            enchantments. I wield frameworks like React.js and Next.js with
-            precision, crafting seamless portals (websites) that connect realms
-            (users) across the digital universe. The ancient arts of the
-            Jamstack empower me to create fast, secure, and dynamic experiences,
-            while my design skills ensure every creation is not only functional
-            but visually captivating. Join me as I continue to explore new
-            spells and technologies to shape the future of the web.
+            M.Sc. Electronics graduate from University of Delhi with specialization in semiconductor devices, thin film technology, and spintronics. My research focuses on fabrication and characterization of FeCo/CoFe thin films on flexible substrates using sputtering techniques. I work with advanced characterization tools including XRD, VSM, FMR, AFM, FESEM, and EDS. My expertise spans embedded systems design, VLSI/RTL development, and hardware prototyping with Arduino and ESP32 platforms.
           </p>
         </ItemLayout>
 
@@ -31,7 +23,7 @@ const AboutDetails = () => {
           className={" col-span-full xs:col-span-6 lg:col-span-4 text-accent"}
         >
           <p className="font-semibold w-full text-left text-2xl sm:text-5xl">
-            25+ <sub className="font-semibold text-base">clients</sub>
+            M.Sc. <sub className="font-semibold text-base">Electronics</sub>
           </p>
         </ItemLayout>
 
@@ -39,8 +31,7 @@ const AboutDetails = () => {
           className={"col-span-full xs:col-span-6 lg:col-span-4 text-accent"}
         >
           <p className="font-semibold w-full text-left text-2xl sm:text-5xl">
-            4+{" "}
-            <sub className="font-semibold text-base">years of experience</sub>
+            University of Delhi
           </p>
         </ItemLayout>
 
@@ -49,52 +40,56 @@ const AboutDetails = () => {
         >
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/top-langs?username=codebucks27&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false`}
-            alt="CodeBucks"
+            src={`https://skillicons.dev/icons?i=matlab,arduino,c,verilog,python,linux`}
+            alt="Technical Skills"
             loading="lazy"
           />
         </ItemLayout>
 
         <ItemLayout className={"col-span-full md:col-span-8 !p-0"}>
-          <img
-            className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api?username=codebucks27&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false`}
-            alt="CodeBucks"
-            loading="lazy"
-          />
+          <div className="p-6 custom-bg">
+            <h3 className="text-accent font-semibold text-lg mb-3">Research Specialization</h3>
+            <ul className="space-y-2 text-sm text-foreground">
+              <li>• Semiconductor Devices & Thin Film Technology</li>
+              <li>• Spintronics & Flexible Electronics</li>
+              <li>• VLSI Design & RTL Development</li>
+              <li>• Embedded Systems & Microcontrollers</li>
+            </ul>
+          </div>
         </ItemLayout>
 
         <ItemLayout className={"col-span-full"}>
           <img
             className="w-full h-auto"
-            src={`https://skillicons.dev/icons?i=appwrite,aws,babel,bootstrap,cloudflare,css,d3,docker,figma,firebase,gatsby,git,github,graphql,html,ipfs,js,jquery,kubernetes,linux,mongodb,mysql,netlify,nextjs,nodejs,npm,postgres,react,redux,replit,sass,supabase,tailwind,threejs,vercel,vite,vscode,yarn`}
-            alt="CodeBucks"
+            src={`https://skillicons.dev/icons?i=vscode,git,github,proteus,esp32`}
+            alt="Tools & Platforms"
             loading="lazy"
           />
         </ItemLayout>
 
         <ItemLayout className={"col-span-full md:col-span-6 !p-0"}>
-          <img
-            className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STREAK_STATS_URL}?user=codebucks27&theme=dark&hide_border=true&type=svg&background=EB545400&ring=FEFE5B&currStreakLabel=FEFE5B`}
-            alt="CodeBucks"
-            loading="lazy"
-          />
+          <div className="p-6 custom-bg">
+            <h3 className="text-accent font-semibold text-lg mb-3">Characterization Tools</h3>
+            <ul className="space-y-2 text-sm text-foreground">
+              <li>• XRD (X-Ray Diffraction)</li>
+              <li>• VSM (Vibrating Sample Magnetometer)</li>
+              <li>• FMR (Ferromagnetic Resonance)</li>
+              <li>• AFM (Atomic Force Microscopy)</li>
+              <li>• FESEM & EDS</li>
+            </ul>
+          </div>
         </ItemLayout>
 
         <ItemLayout className={"col-span-full md:col-span-6 !p-0"}>
-          <Link
-            href="https://github.com/codebucks27/Nextjs-contentlayer-blog"
-            target="_blank"
-            className="w-full"
-          >
-            <img
-              className="w-full h-auto"
-              src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/pin/?username=codebucks27&repo=Nextjs-contentlayer-blog&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false&description_lines_count=2`}
-              alt="CodeBucks"
-              loading="lazy"
-            />
-          </Link>
+          <div className="p-6 custom-bg">
+            <h3 className="text-accent font-semibold text-lg mb-3">Fabrication Techniques</h3>
+            <ul className="space-y-2 text-sm text-foreground">
+              <li>• Sputtering Deposition</li>
+              <li>• Thin Film Characterization</li>
+              <li>• Flexible Substrate Processing</li>
+              <li>• FeCo/CoFe Alloy Films</li>
+            </ul>
+          </div>
         </ItemLayout>
       </div>
     </section>
