@@ -8,21 +8,38 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://amitkr26.github.io"),
   title: {
-    template: "Amit Kumar | Semiconductor & Electronics Engineer | %s",
-    default: "Amit Kumar | Semiconductor & Electronics Engineer",
+    template: "%s | Amit Kumar - Semiconductor & Electronics Engineer",
+    default: "Amit Kumar | Semiconductor Fabrication & Electronics Research",
   },
   description:
-    "M.Sc. Electronics graduate specializing in semiconductor devices, thin film technology, spintronics, VLSI, and embedded systems. Research focus on FeCo/CoFe thin films fabrication and characterization.",
-  keywords: ["semiconductor", "electronics", "VLSI", "embedded systems", "thin film", "spintronics", "electronics engineer"],
+    "Engineering platform of Amit Kumar, specializing in semiconductor thin-film fabrication, spintronics research, and embedded systems design. Transitions into VLSI and RTL verification.",
+  keywords: [
+    "Amit Kumar",
+    "Semiconductor Engineer",
+    "Thin Film Technology",
+    "Spintronics Research",
+    "DC Magnetron Sputtering",
+    "XRD Characterization",
+    "VSM Analysis",
+    "Embedded Systems",
+    "VLSI Design",
+    "RTL Verification",
+    "Verilog",
+    "Electronics Engineering Delhi",
+  ],
   authors: [{ name: "Amit Kumar" }],
+  creator: "Amit Kumar",
+  publisher: "Amit Kumar",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://amitkr26.blogspot.com",
-    siteName: "Amit Kumar - Semiconductor Engineer",
+    url: "https://amitkr26.github.io",
+    siteName: "Amit Kumar - Engineering Platform",
     title: "Amit Kumar | Semiconductor & Electronics Engineer",
-    description: "M.Sc. Electronics graduate specializing in semiconductor devices, thin film technology, spintronics, VLSI, and embedded systems.",
+    description:
+      "Research-focused engineering profile with expertise in semiconductor fabrication and material characterization.",
   },
 };
 
@@ -32,11 +49,10 @@ export default function RootLayout({ children }) {
       <body
         className={clsx(
           inter.variable,
-          "bg-background text-foreground font-inter"
+          "bg-background text-foreground font-sans antialiased"
         )}
       >
         {children}
-        <div id="my-modal" />
       </body>
     </html>
   );

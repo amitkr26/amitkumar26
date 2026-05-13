@@ -11,7 +11,7 @@ export default function Contact() {
     <>
       <Image
         src={bg}
-        alt="Next.js Portfolio website's contact page background image"
+        alt="Contact page background"
         priority
         sizes="100vw"
         className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
@@ -22,8 +22,8 @@ export default function Contact() {
           <h1 className="text-accent font-semibold text-center text-4xl capitalize">
             Get In Touch
           </h1>
-          <p className="text-center font-light text-sm xs:text-base">
-            Interested in semiconductor research, embedded systems collaboration, or VLSI opportunities? I'm always open to discussing technical projects, research partnerships, or career opportunities in electronics engineering. Feel free to reach out through the form below.
+          <p className="text-center text-sm text-slate-400 leading-relaxed max-w-xl">
+            Open to discussions on semiconductor research, embedded systems engineering, RTL/VLSI opportunities, and technical collaboration. Use the form below or connect via GitHub/LinkedIn.
           </p>
         </div>
         <Form />

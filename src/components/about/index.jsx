@@ -1,6 +1,7 @@
 import React from "react";
 import ItemLayout from "./ItemLayout";
 import Link from "next/link";
+import Image from "next/image";
 
 const AboutDetails = () => {
   return (
@@ -38,11 +39,14 @@ const AboutDetails = () => {
         <ItemLayout
           className={"col-span-full sm:col-span-6 md:col-span-4 !p-0"}
         >
-          <img
+          <Image
             className="w-full h-auto"
             src={`https://skillicons.dev/icons?i=matlab,arduino,c,verilog,python,linux`}
             alt="Technical Skills"
             loading="lazy"
+            width={500}
+            height={100}
+            unoptimized
           />
         </ItemLayout>
 
@@ -59,11 +63,14 @@ const AboutDetails = () => {
         </ItemLayout>
 
         <ItemLayout className={"col-span-full"}>
-          <img
+          <Image
             className="w-full h-auto"
             src={`https://skillicons.dev/icons?i=vscode,git,github,proteus,esp32`}
             alt="Tools & Platforms"
             loading="lazy"
+            width={1000}
+            height={100}
+            unoptimized
           />
         </ItemLayout>
 

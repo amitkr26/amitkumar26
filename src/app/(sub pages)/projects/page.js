@@ -4,7 +4,7 @@ import ProjectList from "@/components/projects";
 import { projectsData } from "../../data";
 
 export const metadata = {
-  title: "Research",
+  title: "Projects",
 };
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Image
         src={bg}
-        alt="Research projects background"
+        alt="Projects page background"
         className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
         priority
         sizes="100vw"
