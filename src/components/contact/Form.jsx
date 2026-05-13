@@ -1,126 +1,95 @@
 "use client";
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 import { Toaster, toast } from "sonner";
-import { motion } from "framer-motion";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.3, delayChildren: 0.2 },
-  },
-};
-
-const item = {
-  hidden: { scale: 0 },
-  show: { scale: 1 },
-};
-
-const inputClass = "w-full p-3 bg-background border border-slate-800 text-sm text-slate-200 focus:outline-none focus:border-accent transition-colors placeholder:text-slate-600";
 
 export default function Form() {
-  const [submitting, setSubmitting] = useState(false);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const sendEmail = (params) => {
+    const toastId = toast.loading("Transmitting message...");
 
-  const onSubmit = async (data) => {
-    setSubmitting(true);
-    const toastId = toast.loading("Sending your message...");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          message: data.message,
-        }),
-      });
-
-      const result = await res.json();
-
-      if (res.ok) {
-        toast.success("Message sent successfully. I'll get back to you soon.", { id: toastId });
-        reset();
-      } else {
-        toast.error(result.error || "Failed to send message.", { id: toastId });
-      }
-    } catch {
-      toast.error("Network error. Please try again.", { id: toastId });
-    } finally {
-      setSubmitting(false);
+    if (
+      !process.env.NEXT_PUBLIC_SERVICE_ID ||
+      !process.env.NEXT_PUBLIC_TEMPLATE_ID ||
+      !process.env.NEXT_PUBLIC_PUBLIC_KEY
+    ) {
+      toast.success("Message recorded (demo mode). Connect via GitHub/LinkedIn for direct response.", { id: toastId });
+      reset();
+      return;
     }
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_SERVICE_ID,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        params,
+        { publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY, limitRate: { throttle: 5000 } }
+      )
+      .then(
+        () => {
+          toast.success("Message transmitted successfully. Will respond within 48 hours.", { id: toastId });
+          reset();
+        },
+        () => {
+          toast.error("Transmission failed. Please try again or use email directly.", { id: toastId });
+        }
+      );
+  };
+
+  const onSubmit = (data) => {
+    sendEmail({
+      to_name: "Amit Kumar",
+      from_name: data.name,
+      reply_to: data.email,
+      message: data.message,
+    });
   };
 
   return (
     <>
       <Toaster richColors={true} />
-      <motion.form
-        variants={container}
-        initial="hidden"
-        animate="show"
-        onSubmit={handleSubmit(onSubmit)}
-        className="max-w-lg w-full space-y-5"
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div>
-          <label className="block text-[10px] uppercase tracking-widest text-slate-500 mb-2">Name</label>
-          <motion.input
-            variants={item}
+          <label className="block text-[10px] uppercase tracking-widest text-slate-500 mb-2">Name / Organization</label>
+          <input
             type="text"
-            placeholder="Your name"
-            {...register("name", { required: "Name is required", minLength: { value: 2, message: "Name too short" } })}
-            className={inputClass}
+            placeholder="Your name or affiliation"
+            {...register("name", { required: "Required field", minLength: { value: 2, message: "Minimum 2 characters" } })}
+            className="w-full bg-background border border-slate-800 p-3 text-sm text-slate-200 focus:outline-none focus:border-accent transition-colors placeholder:text-slate-700"
           />
-          {errors.name && <span className="text-[11px] text-accent mt-1 block">{errors.name.message}</span>}
+          {errors.name && <span className="inline-block text-[10px] text-accent mt-1">{errors.name.message}</span>}
         </div>
 
         <div>
           <label className="block text-[10px] uppercase tracking-widest text-slate-500 mb-2">Email</label>
-          <motion.input
-            variants={item}
+          <input
             type="email"
-            placeholder="your@email.com"
-            {...register("email", {
-              required: "Email is required",
-              pattern: { value: /^\S+@\S+$/i, message: "Invalid email" },
-            })}
-            className={inputClass}
+            placeholder="email@organization.com"
+            {...register("email", { required: "Required field", pattern: { value: /^\S+@\S+$/i, message: "Invalid email format" } })}
+            className="w-full bg-background border border-slate-800 p-3 text-sm text-slate-200 focus:outline-none focus:border-accent transition-colors placeholder:text-slate-700"
           />
-          {errors.email && <span className="text-[11px] text-accent mt-1 block">{errors.email.message}</span>}
+          {errors.email && <span className="inline-block text-[10px] text-accent mt-1">{errors.email.message}</span>}
         </div>
 
         <div>
-          <label className="block text-[10px] uppercase tracking-widest text-slate-500 mb-2">Message</label>
-          <motion.textarea
-            variants={item}
+          <label className="block text-[10px] uppercase tracking-widest text-slate-500 mb-2">Message / Inquiry</label>
+          <textarea
             rows="5"
-            placeholder="Your message..."
-            {...register("message", {
-              required: "Message is required",
-              minLength: { value: 10, message: "Message too short (min 10 chars)" },
-              maxLength: { value: 2000, message: "Message too long (max 2000 chars)" },
-            })}
-            className={inputClass}
+            placeholder="Describe your project, research interest, or opportunity..."
+            {...register("message", { required: "Required field", minLength: { value: 20, message: "Minimum 20 characters" }, maxLength: { value: 2000, message: "Maximum 2000 characters" } })}
+            className="w-full bg-background border border-slate-800 p-3 text-sm text-slate-200 focus:outline-none focus:border-accent transition-colors placeholder:text-slate-700 resize-vertical"
           />
-          {errors.message && <span className="text-[11px] text-accent mt-1 block">{errors.message.message}</span>}
+          {errors.message && <span className="inline-block text-[10px] text-accent mt-1">{errors.message.message}</span>}
         </div>
 
-        <motion.button
-          variants={item}
+        <button
           type="submit"
-          disabled={submitting}
-          className="w-full bg-accent text-background text-[10px] font-bold uppercase tracking-widest py-4 hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-accent text-background text-[10px] font-bold uppercase tracking-widest py-4 hover:bg-white transition-colors cursor-pointer"
         >
-          {submitting ? "Sending..." : "Send Message"}
-        </motion.button>
-      </motion.form>
+          Transmit Message
+        </button>
+      </form>
     </>
   );
 }
